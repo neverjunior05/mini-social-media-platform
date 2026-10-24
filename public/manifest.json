@@ -1,0 +1,1 @@
+{ "name": "Pebble", "short_name": "Pebble", "description": "A calmer, prettier place for small circles.", "start_url": "/home", "display": "standalone", "background_color": "#FFF8F3", "theme_color": "#FF5E6C", "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }] }

@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: app_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pebble_pg:/var/lib/postgresql/data
+  # Optional standalone worker (story expiry, poll closing, trending, scheduled posts, account deletion)
+  worker:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: sh -c "npm install && npx tsx worker/index.ts"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/app_db
+    depends_on:
+      - db
+    profiles: ["worker"]
+volumes:
+  pebble_pg:

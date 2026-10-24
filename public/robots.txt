@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /messages
+Disallow: /notifications
+Disallow: /bookmarks
+Disallow: /settings
+Disallow: /admin
+Disallow: /moderation
+Disallow: /onboarding
+Disallow: /api/
+Sitemap: /sitemap.xml
